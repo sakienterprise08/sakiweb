@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Pagina.css">
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin: 0px; padding: 0px;" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Index.html">
+        <img src="logo.png" alt="Logo" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seguridad</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">R</a></li>
+              <li><a class="dropdown-item" href="#">L</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="d-flex me-3" role="search">
+          <input class="form-control bg-white text-dark" type="search" placeholder="Buscar">
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+
+        <!-- Botón del carrito (lleva a la página de pedidos) -->
+        <a class="btn btn-outline-light" href="RegistrarPedido.html" aria-label="Ir al carrito">
+          <i class="bi bi-cart3"></i>
+        </a>
+      </div>
+    </div>´
+  </nav>
+</header>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

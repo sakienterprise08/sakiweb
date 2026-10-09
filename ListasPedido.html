@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listar Pedidos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/3.1.2/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="Pagina.css">
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin: 0px; padding: 0px;" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Index.html">
+        <img src="logo.png" alt="Logo" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seguridad</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">R</a></li>
+              <li><a class="dropdown-item" href="#">L</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="d-flex me-3" role="search">
+          <input class="form-control bg-white text-dark" type="search" placeholder="Buscar">
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+
+        <!-- Botón del carrito (lleva a la página de pedidos) -->
+        <a class="btn btn-outline-light" href="RegistrarPedido.html" aria-label="Ir al carrito">
+          <i class="bi bi-cart3"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container mt-3">
+    <h1>Pedidos</h1>
+    <table id="Pedidos" class="table table-striped">
+      <thead>
+        <tr><th>Cliente</th><th>Producto</th><th>Cantidad</th><th>Estado</th><th>Acciones</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td><td>Juguete con correa</td><td>1</td><td><span class="badge bg-warning text-dark">Pendiente</span></td>
+          <td>
+          <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+          <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+          <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Mary</td><td>Concentrado para perro</td><td>2</td><td><span class="badge bg-info text-dark">En proceso</span></td>
+          <td>
+          <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+          <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+          <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>July</td><td>Concentrado para gato</td><td>1</td><td><span class="badge bg-success">Entregado</span></td>
+          <td>
+          <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+          <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+          <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- VER DETALLE -->
+<div class="modal fade" id="verDetalle" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Información del pedido</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="mb-3">
+              <label for="ver_cliente" class="form-label">Cliente</label>
+              <input type="text" class="form-control" id="ver_cliente" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_producto" class="form-label">Producto</label>
+              <input type="text" class="form-control" id="ver_producto" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_cantidad" class="form-label">Cantidad</label>
+              <input type="number" class="form-control" id="ver_cantidad" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_estado" class="form-label">Estado</label>
+              <input type="text" class="form-control" id="ver_estado" readonly>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDITAR -->
+<div class="modal fade" id="editar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Editar pedido</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="mb-3">
+              <label for="edit_cliente" class="form-label">Cliente</label>
+              <input type="text" class="form-control" id="edit_cliente">
+            </div>
+            <div class="mb-3">
+              <label for="edit_producto" class="form-label">Producto</label>
+              <input type="text" class="form-control" id="edit_producto">
+            </div>
+            <div class="mb-3">
+              <label for="edit_cantidad" class="form-label">Cantidad</label>
+              <input type="number" class="form-control" id="edit_cantidad">
+            </div>
+            <div class="mb-3">
+              <label for="edit_estado" class="form-label">Estado</label>
+              <input type="text" class="form-control" id="edit_estado">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ELIMINAR -->
+<div class="modal fade" id="eliminar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar pedido</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de que desea eliminar este pedido?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/3.1.2/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/3.1.2/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  new DataTable('#Pedidos');
+</script>
+
+</body>
+</html>
