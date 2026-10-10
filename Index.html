@@ -3,87 +3,241 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>SAKI | Adopta con propósito</title>
+
+  <!-- CDNs (Bootstrap CSS, Iconos y Chart.js) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="Pagina.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- Hoja de Estilos Personalizada -->
+  <link rel="stylesheet" href="pagina.css">
 </head>
 <body>
 
-<!-- Barra de navegación -->
-<header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin: 0px; padding: 0px;" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="Index.html">
-        <img src="logo.png" alt="Logo" height="40">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- Barra de navegación -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin: 0px; padding: 0px;" data-bs-theme="dark">
+      <div class="container-fluid p-1">
+        <img src="imagenes/logo/Logo1.png" alt="Logo SAKI" style="height:50px; padding-left:5px;">
+        <a class="navbar-brand ms-1" href="index.html">SAKI</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
-              <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
-              <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Registrar</a></li>
-              <li><a class="dropdown-item" href="#">Listar</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Registrar</a></li>
-              <li><a class="dropdown-item" href="#">Listar</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seguridad</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">R</a></li>
-              <li><a class="dropdown-item" href="#">L</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Registrar</a></li>
-              <li><a class="dropdown-item" href="#">Listar</a></li>
-            </ul>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ms-3 me-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
+                <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
+                <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Registrar</a></li>
+                <li><a class="dropdown-item" href="#">Listar</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Registrar</a></li>
+                <li><a class="dropdown-item" href="#">Listar</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Registrar</a></li>
+                <li><a class="dropdown-item" href="#">Listar</a></li>
+              </ul>
+            </li>
+          </ul>
 
-        <form class="d-flex me-3" role="search">
-          <input class="form-control bg-white text-dark" type="search" placeholder="Buscar">
-          <button class="btn btn-outline-light" type="submit">Buscar</button>
-        </form>
+          <input class="form-control bg-white text-dark ms-lg-5 my-2 my-lg-0" type="search" placeholder="Buscar productos..." style="width:320px;">
 
-        <!-- Botón del carrito (lleva a la página de pedidos) -->
-        <a class="btn btn-outline-light" href="RegistrarPedido.html" aria-label="Ir al carrito">
-          <i class="bi bi-cart3"></i>
-        </a>
+          <a class="btn btn-outline-light ms-lg-2 ms-0" href="RegistrarPedido.html" aria-label="Ir al carrito">
+            <i class="bi bi-cart3"></i>
+          </a>
+          <a class="btn btn-outline-light ms-2 me-2" href="dashboard.html">Iniciar sesión</a>
+        </div>
       </div>
-    </div>´
-  </nav>
-</header>
+    </nav>
+  </header>
 
+  <main>
+    <!-- Carrusel Hero Principal -->
+    <section id="inicio" class="hero-carousel" aria-label="Historias de adopción">
+      <div id="carruselPrincipal" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carruselPrincipal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Historia uno"></button>
+          <button type="button" data-bs-target="#carruselPrincipal" data-bs-slide-to="1" aria-label="Historia dos"></button>
+          <button type="button" data-bs-target="#carruselPrincipal" data-bs-slide-to="2" aria-label="Historia tres"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/4422100/pexels-photo-4422100.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Persona acariciando felizmente a un perro en casa">
+            <div class="carousel-caption">
+              <div class="hero-copy">
+                <span class="eyebrow">Un hogar empieza aquí</span>
+                <h1>Conecta, adopta y cuida a tu mejor amigo.</h1>
+                <p>Encuentra una compañía que encaje contigo y acompaña a una mascota en el comienzo de una nueva historia.</p>
+                <a href="#mascotas" class="btn-saki">Adopt your new pet here <i class="bi bi-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/33834948/pexels-photo-33834948.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Perro feliz listo para encontrar un hogar">
+            <div class="carousel-caption">
+              <div class="hero-copy">
+                <span class="eyebrow">Más que una adopción</span>
+                <h1>Una segunda oportunidad puede cambiarlo todo.</h1>
+                <p>Conoce historias reales, descubre personalidades únicas y encuentra ese vínculo que se siente como familia.</p>
+                <a href="#mascotas" class="btn-saki">Conocer mascotas <i class="bi bi-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/34201901/pexels-photo-34201901.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Gato curioso esperando ser adoptado">
+            <div class="carousel-caption">
+              <div class="hero-copy">
+                <span class="eyebrow">Cuidar también es amar</span>
+                <h1>Tu hogar puede ser su lugar seguro.</h1>
+                <p>Te acompañamos con orientación para que cada encuentro se convierta en una vida compartida y feliz.</p>
+                <a href="#como-funciona" class="btn-saki">Descubrir cómo funciona <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselPrincipal" data-bs-slide="prev" aria-label="Anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselPrincipal" data-bs-slide="next" aria-label="Siguiente">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
 
+    <!-- Sección Introductoria -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-card">
+          <div>
+            <p class="section-kicker">Encuentra una conexión real</p>
+            <h2>Adopta tu mascota ideal y dale una segunda oportunidad a un gran corazón.</h2>
+          </div>
+          <a href="#mascotas" class="btn-secondary-saki">Ver más <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Tarjetas de Mascotas -->
+    <section id="mascotas" class="pets-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Esperando por ti</p>
+            <h2>Conoce a nuestros protagonistas</h2>
+          </div>
+          <p>Cada mascota tiene una personalidad especial. Tal vez hoy conozcas a ese compañero que estabas buscando.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="pet-card">
+              <div class="pet-card-image">
+                <img src="https://images.pexels.com/photos/34201901/pexels-photo-34201901.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Félix, gato gris de ojos amarillos" loading="lazy">
+                <span class="pet-status">Disponible</span>
+              </div>
+              <div class="pet-card-body">
+                <div class="pet-card-title"><h3>Félix</h3><span class="pet-age">3 años <i class="bi bi-paw"></i></span></div>
+                <div class="pet-tags"><span class="pet-tag">Perfecto para niños</span><span class="pet-tag">Activo</span></div>
+                <p>Félix lo encontró todo en la calle en condiciones difíciles. Es un gato cariñoso que busca un hogar tranquilo y lleno de afecto.</p>
+                <a href="#" class="btn-saki">Adoptar <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="pet-card">
+              <div class="pet-card-image">
+                <img src="https://images.pexels.com/photos/12301134/pexels-photo-12301134.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Maya, perrita pequeña de pelo claro" loading="lazy">
+                <span class="pet-status">Disponible</span>
+              </div>
+              <div class="pet-card-body">
+                <div class="pet-card-title"><h3>Maya</h3><span class="pet-age">2 años <i class="bi bi-paw"></i></span></div>
+                <div class="pet-tags"><span class="pet-tag">Tranquila</span><span class="pet-tag">Leal</span></div>
+                <p>Maya fue encontrada sola en una calle concurrida. Es dulce, tranquila y disfruta de los paseos suaves y de las tardes en compañía.</p>
+                <a href="#" class="btn-saki">Adoptar <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="pet-card">
+              <div class="pet-card-image">
+                <img src="https://images.pexels.com/photos/39101955/pexels-photo-39101955.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Luna, cachorra activa sentada sobre el césped" loading="lazy">
+                <span class="pet-status">Disponible</span>
+              </div>
+              <div class="pet-card-body">
+                <div class="pet-card-title"><h3>Luna</h3><span class="pet-age">4 años <i class="bi bi-paw"></i></span></div>
+                <div class="pet-tags"><span class="pet-tag">Activa</span><span class="pet-tag">Juguetona</span></div>
+                <p>Luna llegó al refugio tras haber vivido sus primeros años en la calle. Tiene mucha energía, nobleza y ganas de descubrir el mundo.</p>
+                <a href="#" class="btn-saki">Adoptar <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Sección ¿Cómo funciona? -->
+    <section id="como-funciona" class="how-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="how-item">
+              <span class="how-icon"><i class="bi bi-search-heart"></i></span>
+              <h3>Explora con calma</h3>
+              <p>Conoce sus historias, necesidades y personalidades antes de elegir a tu nuevo compañero.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-item">
+              <span class="how-icon"><i class="bi bi-chat-heart"></i></span>
+              <h3>Conversemos</h3>
+              <p>Te orientamos para que el proceso sea claro, responsable y pensado para ambas partes.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-item">
+              <span class="how-icon"><i class="bi bi-house-heart"></i></span>
+              <h3>Construyan su hogar</h3>
+              <p>Prepárate para compartir una vida llena de pequeños momentos y mucho cariño.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="saki-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>SAKI · Cuidando vínculos que duran toda la vida.</span>
+      <a href="#inicio">Volver arriba <i class="bi bi-arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scriptindex.js"></script>
 </body>
 </html>

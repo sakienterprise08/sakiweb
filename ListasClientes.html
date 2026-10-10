@@ -14,16 +14,19 @@
 <!-- Barra de navegación -->
 <header>
   <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin: 0px; padding: 0px;" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="Index.html">
-        <img src="logo.png" alt="Logo" height="40">
+    <div class="container-fluid p-1">
+      <img src="/imagenes/logo/Logo1.png" alt="Logo" style="height:50px; padding-left:5px;">
+      <a class="navbar-brand ms-1" href="Index.html">SAKI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button> 
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav ms-3 me-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
             <ul class="dropdown-menu">
@@ -52,12 +55,6 @@
               <li><a class="dropdown-item" href="#">Listar</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seguridad</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">R</a></li>
-              <li><a class="dropdown-item" href="#">L</a></li>
-            </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
@@ -66,17 +63,13 @@
               <li><a class="dropdown-item" href="#">Listar</a></li>
             </ul>
           </li>
+        <input class="form-control bg-white text-dark ms-5 mt-1" type="search" placeholder=" Buscar productos..." style="height: 75%; width:320px;" >
         </ul>
-
-        <form class="d-flex me-3" role="search">
-          <input class="form-control bg-white text-dark" type="search" placeholder="Buscar">
-          <button class="btn btn-outline-light" type="submit">Buscar</button>
-        </form>
-
         <!-- Botón del carrito (lleva a la página de pedidos) -->
         <a class="btn btn-outline-light" href="RegistrarPedido.html" aria-label="Ir al carrito">
           <i class="bi bi-cart3"></i>
         </a>
+        <a class="btn btn-outline-light ms-2 me-2" href="dashboard.html" type="submit" style="height: 60%; width:120px">Iniciar sesion</a>
       </div>
     </div>
   </nav>
