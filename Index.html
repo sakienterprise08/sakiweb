@@ -17,60 +17,45 @@
 
   <!-- Barra de navegación -->
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin: 0px; padding: 0px;" data-bs-theme="dark">
-      <div class="container-fluid p-1">
-        <img src="imagenes/logo/Logo1.png" alt="Logo SAKI" style="height:50px; padding-left:5px;">
-        <a class="navbar-brand ms-1" href="index.html">SAKI</a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-saki" aria-label="Navegación principal">
+      <div class="container-fluid navbar-saki-inner px-4 py-2">
+        <a class="navbar-brand navbar-saki-brand d-flex align-items-center gap-2 m-0" href="index.html" aria-label="SAKI inicio">
+          <img src="imagenes/logo/Logo1.png" alt="Logo SAKI" style="height: 40px; border-radius: 8px; object-fit: contain;">
+          <span>SAKI</span>
+        </a>
+
+        <!-- Botón Hamburguesa para celulares -->
+        <button class="navbar-toggler navbar-saki-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Abrir navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav ms-3 me-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
-                <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
-                <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Registrar</a></li>
-                <li><a class="dropdown-item" href="#">Listar</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Registrar</a></li>
-                <li><a class="dropdown-item" href="#">Listar</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Registrar</a></li>
-                <li><a class="dropdown-item" href="#">Listar</a></li>
-              </ul>
-            </li>
-          </ul>
+        <!-- Contenido colapsable -->
+        <div class="collapse navbar-collapse justify-content-between align-items-center" id="collapsibleNavbar">
+          
+          <!-- Botones de navegación principal-->
+          <div class="navbar-saki-actions navbar-nav mx-lg-auto d-flex flex-row gap-2 my-2 my-lg-0">
+            <a class="nav-pill active" href="index.html#inicio" aria-current="page">Huellas</a>
+            <a class="nav-pill" href="index.html#mascotas">Adoptar</a>
+            <a class="nav-pill" href="tienda.html">Tienda</a>
+          </div>
+          <!-- Barra de busqueda-->
+          <div class="d-flex mx-lg-4 my-2 my-lg-0 flex-grow-1 justify-content-center">
+            <form class="w-100" style="max-width: 360px;" role="search">
+              <input class="form-control saki-search-input" type="search" placeholder="Buscar productos, mascotas..." aria-label="Buscar">
+            </form>
+          </div>
 
-          <input class="form-control bg-white text-dark ms-lg-5 my-2 my-lg-0" type="search" placeholder="Buscar productos..." style="width:320px;">
+          <!-- Aqui esta el carrito y el boton de iniciar sesion-->
+          <div class="navbar-saki-utilities d-flex align-items-center gap-3 mt-2 mt-lg-0">
+            <!-- Botón del Carrito configurado para abrir el Offcanvas -->
+            <button class="saki-icon-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" aria-controls="carritoOffcanvas" aria-label="Ver carrito de compras">
+              <i class="bi bi-cart3"></i>
+            </button>
+            
+            <!-- Botón de Iniciar Sesión -->
+            <a class="saki-login-button" href="dashboard.html">Iniciar sesión</a>
+          </div>
 
-          <a class="btn btn-outline-light ms-lg-2 ms-0" href="RegistrarPedido.html" aria-label="Ir al carrito">
-            <i class="bi bi-cart3"></i>
-          </a>
-          <a class="btn btn-outline-light ms-2 me-2" href="dashboard.html">Iniciar sesión</a>
         </div>
       </div>
     </nav>
@@ -235,7 +220,35 @@
       <a href="#inicio">Volver arriba <i class="bi bi-arrow-up"></i></a>
     </div>
   </footer>
-
+  <!-- Barra lateral deslizable del Carrito -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="carritoOffcanvas" aria-labelledby="tituloCarrito">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title fw-bold text-dark" id="tituloCarrito">
+        <i class="bi bi-cart3 me-2"></i>Tu Carrito SAKI
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div class="flex-grow-1">
+        <div class="d-flex align-items-center justify-content-between p-2 mb-2 border-bottom">
+          <div>
+            <strong class="d-block text-dark" style="font-size: 0.9rem;">Kit de Adopción Inicial</strong>
+            <small class="text-muted">1 x $35.000</small>
+          </div>
+          <button class="btn btn-sm text-danger" aria-label="Eliminar"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>
+      <div class="pt-3 border-top">
+        <div class="d-flex justify-content-between mb-3 fw-bold text-dark">
+          <span>Total estimado:</span>
+          <span class="text-primary">$35.000</span>
+        </div>
+        <a href="RegistrarPedido.html" class="btn w-100 fw-bold text-dark shadow-sm" style="background-color: var(--ambar, #ffda95); border: none; border-radius: 999px;">
+          Procesar Pedido <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scriptindex.js"></script>
