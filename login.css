@@ -1,0 +1,216 @@
+/* Colores y Variables de Figma */
+:root {
+    --bg-main: #bad4f9;          /* Fondo verdoso principal */
+    --card-bg: #f2e9e9;          /* Fondo crema suave de la tarjeta */
+    --brand-primary: #397f80;     /* Verde oscuro del botón e íconos */
+    --brand-hover: #053b2e;       /* Hover del botón */
+    --border-color: #E2E8F0;     /* Borde de los campos de texto */
+    --turquesa: #60a9a6;
+    --turquesa-profundo: #397f80;
+    --azul-suave: #bad4f9;
+    --rosa-humo: #f2e9e9;
+    --crema: #feffd0;
+    --ambar: #ffda95;
+    --tinta: #244452;
+    --muted: #637984;
+    --blanco: #fffdfb;
+    --sombra: 0 18px 48px rgba(36, 68, 82, .13);
+}
+.navbar-saki {
+  background-color: var(--turquesa, #60a9a6) !important;
+  box-shadow: 0 4px 20px rgba(16, 42, 67, 0.08);
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-saki-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Estilos de la marca (Logo + Texto) */
+.navbar-saki-brand {
+  color: #fff !important;
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-saki-brand span {
+  letter-spacing: -0.5px;
+}
+
+/* Botones de navegación tipo "pill" con efecto Hover */
+.navbar-saki-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 2.5rem !important;
+}
+
+.nav-pill {
+  padding: 8px 18px;
+  border-radius: 999px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.nav-pill:hover, 
+.nav-pill.active {
+  background-color: #fff;
+  color: var(--turquesa, #60a9a6);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Barra de búsqueda adaptada */
+.saki-search-input {
+  border-radius: 999px;
+  border: none;
+  padding: 9px 20px;
+  font-size: 0.88rem;
+  background-color: #fff;
+  color: var(--tinta, #244452);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+  transition: box-shadow 0.2s ease;
+}
+
+.saki-search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(254, 255, 208, 0.4), inset 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* Botones de utilidades a la derecha */
+.navbar-saki-utilities {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.saki-icon-button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.saki-icon-button:hover {
+  background: #fff;
+  color: var(--turquesa, #60a9a6);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.saki-login-button {
+  padding: 9px 22px;
+  border-radius: 999px;
+  background-color: var(--crema, #feffd0);
+  color: var(--tinta, #244452);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.saki-login-button:hover {
+  background-color: #fff;
+  color: var(--turquesa-profundo, #397f80);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.container-fluid{
+    background-color: #60A9A6 !important;
+    
+}
+body {
+    background-color: var(--bg-main);
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.login-card {
+    border-radius: 24px;
+}
+
+.bg-card-custom {
+    background-color: var(--card-bg);
+}
+
+.image-cover {
+    object-fit: cover;
+}
+
+/* Logo oficial */
+.auth-logo {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Colores de texto del tema */
+.text-brand {
+    color: var(--brand-primary) !important;
+}
+
+/* Campos de entrada con icono incorporado */
+.input-custom {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+.input-custom .form-control {
+    border: none;
+    box-shadow: none;
+    font-size: 0.95rem;
+}
+
+.input-custom .input-group-text {
+    border: none;
+}
+
+/* Botón Verde Principal */
+.btn-brand {
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-brand:hover {
+    background-color: var(--brand-hover);
+    color: #FFFFFF;
+}
+
+/* Botón Outline Google */
+.btn-outline-custom {
+    background-color: #FFFFFF;
+    border: 1px solid var(--brand-primary);
+    color: #333333;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-custom:hover {
+    background-color: #F1F5F9;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
