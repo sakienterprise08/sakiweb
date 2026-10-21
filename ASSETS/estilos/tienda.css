@@ -1,0 +1,490 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ================================================================          */
+:root {
+  --teal: #60a9a6;
+  --blue: #bad4f9;
+  --pink: #f2e9e9;
+  --cream: #feffd0;
+  --peach: #ffda95;
+  --ink: #263b3b;
+  --muted: #718181;
+  --shadow: 0 12px 34px rgba(45, 79, 78, .09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f8fbfa;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Fredoka", sans-serif;
+}
+
+
+/* ==========================================================================
+   2. LAYOUT Y CONTENEDORES PRINCIPALES
+   ================================================================          */
+.soft-bg {
+  min-height: 100vh;
+  background: radial-gradient(circle at 95% 0%, rgba(186, 212, 249, .42), transparent 25rem),
+              radial-gradient(circle at 0% 20%, rgba(254, 255, 208, .5), transparent 24rem),
+              #f8fbfa;
+}
+
+.page-wrap {
+  max-width: 1440px;
+  margin: auto;
+  padding: 32px clamp(16px, 3vw, 42px) 48px;
+}
+
+
+/* ==========================================================================
+   3. CABECERA Y TÍTULOS
+   ================================================================          */
+.shop-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.shop-heading-copy {
+  min-width: 0;
+}
+
+.shop-heading-row .header-actions {
+  flex-shrink: 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: #596044;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.page-title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -.8px;
+  margin: 12px 0 7px;
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 660px;
+  line-height: 1.65;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   4. BOTONES Y COMPONENTES DE INTERacción
+   ================================================================          */
+.primary-btn {
+  border: 0;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 15px;
+  padding: 12px 17px;
+  box-shadow: 0 8px 18px rgba(96, 169, 166, .25);
+  transition: transform .2s, background .2s;
+}
+
+.primary-btn:hover {
+  background: #4d9794;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.cart-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 15px;
+  padding: 12px 17px;
+  background: var(--peach);
+  color: #57472e;
+  font-weight: 700;
+}
+
+.cart-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #fff;
+  font-size: .8rem;
+}
+
+
+/* ==========================================================================
+   5. BÚSQUEDA Y FILTROS
+   ================================================================          */
+.search-wrap {
+  position: relative;
+  min-width: 220px;
+}
+
+.search-wrap i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7b9290;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid #e0eae9;
+  border-radius: 13px;
+  outline: none;
+  background: #fbfdfd;
+}
+
+.search-input:focus,
+.form-select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 .2rem rgba(96, 169, 166, .16);
+}
+
+.filter-select {
+  padding: 12px 36px 12px 13px;
+  border-radius: 13px;
+  border-color: #e0eae9;
+}
+
+
+/* ==========================================================================
+   6. CATÁLOGO Y TARJETAS DE PRODUCTOS
+   ================================================================          */
+.catalog-panel {
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid #e5eeed;
+  border-radius: 24px;
+  padding: clamp(16px, 2vw, 26px);
+  box-shadow: var(--shadow);
+  margin-top: 26px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 19px;
+  margin-top: 24px;
+}
+
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e7eeee;
+  border-radius: 20px;
+  background: #fff;
+  transition: transform .22s, box-shadow .22s, border-color .22s;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(45, 79, 78, .12);
+  border-color: #c9e0de;
+}
+
+.product-image-wrap {
+  position: relative;
+  height: 155px;
+  background: var(--pink);
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.045);
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .94);
+  font-size: .72rem;
+  font-weight: 700;
+  color: #405756;
+}
+
+.product-badge.best {
+  background: var(--peach);
+}
+
+.product-body {
+  padding: 16px;
+}
+
+.product-category {
+  color: #648b89;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-size: .69rem;
+  font-weight: 700;
+}
+
+.product-name {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 5px 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.product-desc {
+  font-size: .83rem;
+  color: var(--muted);
+  min-height: 38px;
+  line-height: 1.45;
+}
+
+.product-price {
+  font: 600 1.35rem "Fredoka", sans-serif;
+  color: #2e6967;
+}
+
+.stock-text {
+  font-size: .77rem;
+  color: var(--muted);
+}
+
+.rating {
+  color: #e6a632;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.rating-count {
+  color: #83908f;
+  font-size: .76rem;
+  letter-spacing: 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.add-cart-btn {
+  flex: 1;
+  border: 0;
+  border-radius: 11px;
+  background: #e7f3f2;
+  color: #386f6d;
+  font-weight: 700;
+  font-size: .84rem;
+  padding: 10px;
+}
+
+.add-cart-btn:hover {
+  background: var(--teal);
+  color: #fff;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--muted);
+}
+
+.empty-state i {
+  font-size: 2.7rem;
+  color: var(--teal);
+}
+
+
+/* ==========================================================================
+   7. MODALES Y DETALLES
+   ================================================================          */
+.modal-content {
+  border: 0;
+  border-radius: 23px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(27, 59, 58, .2);
+}
+
+.modal-header {
+  padding: 22px 24px;
+  border-bottom: 1px solid #edf2f1;
+  background: #fbfdfd;
+}
+
+.modal-title {
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.details-image-wrap {
+  width: 100%;
+  height: clamp(340px, 58vh, 560px);
+  overflow: hidden;
+  border-radius: 17px;
+  background: #f2e9e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 17px;
+  background: #f2e9e9;
+}
+
+.details-price {
+  font: 600 2rem "Fredoka", sans-serif;
+  color: #2e6967;
+}
+
+.rating-picker {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.rating-picker input {
+  display: none;
+}
+
+.rating-picker label {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #d8dfde;
+  transition: color .15s;
+}
+
+.rating-picker label:hover,
+.rating-picker label:hover ~ label,
+.rating-picker input:checked ~ label {
+  color: #e6a632;
+}
+
+.field-help {
+  color: #81918f;
+  font-size: .78rem;
+  margin-top: 5px;
+}
+
+.toast-container {
+  z-index: 1090;
+}
+
+footer {
+  text-align: center;
+  padding: 26px 0 0;
+  color: #8a9b99;
+  font-size: .8rem;
+}
+
+
+/* ==========================================================================
+   8. DISEÑO RESPONSIVO (MEDIA QUERIES)
+   ================================================================          */
+@media (max-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-image-wrap {
+    height: 145px;
+  }
+
+  .product-body {
+    padding: 12px;
+  }
+
+  .product-desc {
+    min-height: 0;
+    margin-bottom: 12px;
+  }
+
+  .catalog-toolbar {
+    align-items: stretch !important;
+  }
+
+  .catalog-toolbar > * {
+    width: 100%;
+  }
+
+  .search-wrap {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-image-wrap {
+    height: 320px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image-wrap {
+    height: 210px;
+  }
+
+  .page-wrap {
+    padding-top: 20px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions button {
+    flex: 1;
+  }
+}
