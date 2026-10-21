@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Pagina.css">
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Index.html">
+        <img src="logo.png" alt="Logo" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarProducto.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasProductos.html">Listar / Buscar</a></li>
+              <li><a class="dropdown-item" href="CatalogoProductos.html">Catálogo</a></li>
+              <li><a class="dropdown-item" href="ProductosMasVendidos.html">Más vendidos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seguridad</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">R</a></li>
+              <li><a class="dropdown-item" href="#">L</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCita.html">Agendar</a></li>
+              <li><a class="dropdown-item" href="ListasCitas.html">Listar</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="d-flex me-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+
+        <!-- Botón del carrito (lleva a la página de pedidos) -->
+        <a class="btn btn-outline-light" href="RegistrarPedido.html" aria-label="Ir al carrito">
+          <i class="bi bi-cart3"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container mt-4 mb-5">
+    <h1>Catálogo de productos</h1>
+    <p class="text-muted">Estos son los productos que están agregados al catálogo.</p>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+      <div class="col">
+        <div class="card h-100 text-center">
+          <div class="card-body d-flex flex-column">
+            <i class="bi bi-box-seam fs-1 text-secondary"></i>
+            <h6 class="card-title mt-2">Alimento perro adulto 5 kg</h6>
+            <p class="text-muted small mb-1">Alimentos</p>
+            <p class="fw-bold mb-1">$65.000</p>
+            <div class="mb-3"><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span> <small class="text-muted">4.6 (18)</small></div>
+            <div class="mt-auto d-flex justify-content-center gap-1 flex-wrap">
+              <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#verCalificacion">Ver calificaciones</button>
+              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center">
+          <div class="card-body d-flex flex-column">
+            <i class="bi bi-box-seam fs-1 text-secondary"></i>
+            <h6 class="card-title mt-2">Alimento gato adulto 3 kg</h6>
+            <p class="text-muted small mb-1">Alimentos</p>
+            <p class="fw-bold mb-1">$48.000</p>
+            <div class="mb-3"><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span> <small class="text-muted">4.4 (11)</small></div>
+            <div class="mt-auto d-flex justify-content-center gap-1 flex-wrap">
+              <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#verCalificacion">Ver calificaciones</button>
+              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center">
+          <div class="card-body d-flex flex-column">
+            <i class="bi bi-box-seam fs-1 text-secondary"></i>
+            <h6 class="card-title mt-2">Collar ajustable</h6>
+            <p class="text-muted small mb-1">Accesorios</p>
+            <p class="fw-bold mb-1">$18.000</p>
+            <div class="mb-3"><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span> <small class="text-muted">4.0 (6)</small></div>
+            <div class="mt-auto d-flex justify-content-center gap-1 flex-wrap">
+              <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#verCalificacion">Ver calificaciones</button>
+              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center">
+          <div class="card-body d-flex flex-column">
+            <i class="bi bi-box-seam fs-1 text-secondary"></i>
+            <h6 class="card-title mt-2">Juguete mordedor</h6>
+            <p class="text-muted small mb-1">Juguetes</p>
+            <p class="fw-bold mb-1">$12.000</p>
+            <div class="mb-3"><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span> <small class="text-muted">4.8 (22)</small></div>
+            <div class="mt-auto d-flex justify-content-center gap-1 flex-wrap">
+              <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#verCalificacion">Ver calificaciones</button>
+              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center">
+          <div class="card-body d-flex flex-column">
+            <i class="bi bi-box-seam fs-1 text-secondary"></i>
+            <h6 class="card-title mt-2">Cama mediana</h6>
+            <p class="text-muted small mb-1">Accesorios</p>
+            <p class="fw-bold mb-1">$85.000</p>
+            <div class="mb-3"><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span> <small class="text-muted">4.7 (5)</small></div>
+            <div class="mt-auto d-flex justify-content-center gap-1 flex-wrap">
+              <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#verCalificacion">Ver calificaciones</button>
+              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center">
+          <div class="card-body d-flex flex-column">
+            <i class="bi bi-box-seam fs-1 text-secondary"></i>
+            <h6 class="card-title mt-2">Antipulgas</h6>
+            <p class="text-muted small mb-1">Salud</p>
+            <p class="fw-bold mb-1">$35.000</p>
+            <div class="mb-3"><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i></span> <small class="text-muted">3.9 (8)</small></div>
+            <div class="mt-auto d-flex justify-content-center gap-1 flex-wrap">
+              <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#verCalificacion">Ver calificaciones</button>
+              <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- VER CALIFICACIÓN -->
+<div class="modal fade" id="verCalificacion" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Calificaciones del producto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted mb-2">Ejemplo: Alimento perro adulto 5 kg</p>
+        <div class="row align-items-center mb-3">
+          <div class="col-4 text-center">
+            <div class="display-5 fw-bold">4.6</div>
+            <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+            <div><small class="text-muted">18 opiniones</small></div>
+          </div>
+          <div class="col-8">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">5 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:70%"></div></div>
+            <small class="text-muted" style="width:2.5rem">70%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">4 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:20%"></div></div>
+            <small class="text-muted" style="width:2.5rem">20%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">3 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:6%"></div></div>
+            <small class="text-muted" style="width:2.5rem">6%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">2 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:3%"></div></div>
+            <small class="text-muted" style="width:2.5rem">3%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">1 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:1%"></div></div>
+            <small class="text-muted" style="width:2.5rem">1%</small>
+          </div>
+          </div>
+        </div>
+        <div class="border-top pt-2 mt-2">
+          <div class="d-flex justify-content-between"><strong>Laura M.</strong><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span></div>
+          <p class="mb-0 text-muted">Excelente producto, mi perro lo ama.</p>
+        </div>
+        <div class="border-top pt-2 mt-2">
+          <div class="d-flex justify-content-between"><strong>Carlos R.</strong><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span></div>
+          <p class="mb-0 text-muted">Buena calidad, llegó rápido.</p>
+        </div>
+        <div class="border-top pt-2 mt-2">
+          <div class="d-flex justify-content-between"><strong>Ana P.</strong><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span></div>
+          <p class="mb-0 text-muted">Está bien, aunque esperaba más cantidad.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALIFICAR -->
+<div class="modal fade" id="calificar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Calificar producto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label" for="calNombre">Tu nombre</label>
+            <input type="text" class="form-control" id="calNombre">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="calPuntaje">Calificación</label>
+            <select class="form-select" id="calPuntaje" required>
+              <option value="" selected disabled>Seleccione...</option>
+              <option value="5">5 - Excelente</option>
+              <option value="4">4 - Muy bueno</option>
+              <option value="3">3 - Bueno</option>
+              <option value="2">2 - Regular</option>
+              <option value="1">1 - Malo</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="calComentario">Comentario</label>
+            <textarea class="form-control" id="calComentario" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning">Enviar calificación</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

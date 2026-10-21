@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listar Productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/3.1.2/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="Pagina.css">
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Index.html">
+        <img src="logo.png" alt="Logo" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarProducto.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasProductos.html">Listar / Buscar</a></li>
+              <li><a class="dropdown-item" href="CatalogoProductos.html">Catálogo</a></li>
+              <li><a class="dropdown-item" href="ProductosMasVendidos.html">Más vendidos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seguridad</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">R</a></li>
+              <li><a class="dropdown-item" href="#">L</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCita.html">Agendar</a></li>
+              <li><a class="dropdown-item" href="ListasCitas.html">Listar</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="d-flex me-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+
+        <!-- Botón del carrito (lleva a la página de pedidos) -->
+        <a class="btn btn-outline-light" href="RegistrarPedido.html" aria-label="Ir al carrito">
+          <i class="bi bi-cart3"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container mt-3 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h1 class="mb-0">Productos</h1>
+      <a href="RegistrarProducto.html" class="btn btn-dark"><i class="bi bi-plus-lg"></i> Nuevo producto</a>
+    </div>
+    <p class="text-muted">Usa el cuadro "Buscar" de la tabla para encontrar un producto por nombre, código o categoría.</p>
+
+    <!-- Buscar / leer / mostrar información de producto -->
+    <div class="table-responsive">
+      <table id="Productos" class="table table-striped align-middle">
+        <thead>
+          <tr><th>Código</th><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Calificación</th><th>Catálogo</th><th>Acciones</th></tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>PRD-001</td>
+          <td>Alimento perro adulto 5 kg</td>
+          <td>Alimentos</td>
+          <td>$65.000</td>
+          <td><span class="badge bg-success">24</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span> <small class="text-muted">4.6 (18)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-success">En catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRD-002</td>
+          <td>Alimento gato adulto 3 kg</td>
+          <td>Alimentos</td>
+          <td>$48.000</td>
+          <td><span class="badge bg-success">15</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span> <small class="text-muted">4.4 (11)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-success">En catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRD-003</td>
+          <td>Collar ajustable</td>
+          <td>Accesorios</td>
+          <td>$18.000</td>
+          <td><span class="badge bg-success">40</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span> <small class="text-muted">4.0 (6)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-success">En catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRD-004</td>
+          <td>Juguete mordedor</td>
+          <td>Juguetes</td>
+          <td>$12.000</td>
+          <td><span class="badge bg-success">60</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span> <small class="text-muted">4.8 (22)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-success">En catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRD-005</td>
+          <td>Shampoo para mascotas</td>
+          <td>Higiene</td>
+          <td>$22.000</td>
+          <td><span class="badge bg-success">18</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span> <small class="text-muted">4.2 (9)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-secondary">Fuera del catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRD-006</td>
+          <td>Cama mediana</td>
+          <td>Accesorios</td>
+          <td>$85.000</td>
+          <td><span class="badge bg-warning text-dark">7 (bajo)</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span> <small class="text-muted">4.7 (5)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-success">En catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRD-007</td>
+          <td>Antipulgas</td>
+          <td>Salud</td>
+          <td>$35.000</td>
+          <td><span class="badge bg-danger">Agotado</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i></span> <small class="text-muted">3.9 (8)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-success">En catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PRD-008</td>
+          <td>Plato de acero</td>
+          <td>Accesorios</td>
+          <td>$15.000</td>
+          <td><span class="badge bg-success">33</span></td>
+          <td>
+            <!-- Ver calificación de producto -->
+            <button class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#verCalificacion" title="Ver calificaciones">
+              <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span> <small class="text-muted">4.1 (4)</small>
+            </button>
+          </td>
+          <td><span class="badge bg-secondary">Fuera del catálogo</span></td>
+          <td>
+          <div class="d-flex flex-wrap gap-1">
+            <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#calificar">Calificar</button>
+            <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#catalogo">Catálogo</button>
+            <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- VER DETALLE -->
+<div class="modal fade" id="verDetalle" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Información del producto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted">Ejemplo: así se verá la información de un producto.</p>
+        <dl class="row mb-0">
+          <dt class="col-sm-4">Código</dt><dd class="col-sm-8">PRD-001</dd>
+          <dt class="col-sm-4">Producto</dt><dd class="col-sm-8">Alimento perro adulto 5 kg</dd>
+          <dt class="col-sm-4">Categoría</dt><dd class="col-sm-8">Alimentos</dd>
+          <dt class="col-sm-4">Precio</dt><dd class="col-sm-8">$65.000</dd>
+          <dt class="col-sm-4">Stock</dt><dd class="col-sm-8">24 unidades</dd>
+          <dt class="col-sm-4">Calificación</dt><dd class="col-sm-8"><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span> 4.6 (18 opiniones)</dd>
+          <dt class="col-sm-4">Catálogo</dt><dd class="col-sm-8"><span class="badge bg-success">En catálogo</span></dd>
+          <dt class="col-sm-4">Descripción</dt><dd class="col-sm-8">Concentrado balanceado para perros adultos de todas las razas.</dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VER CALIFICACIÓN -->
+<div class="modal fade" id="verCalificacion" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Calificaciones del producto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted mb-2">Ejemplo: Alimento perro adulto 5 kg</p>
+        <div class="row align-items-center mb-3">
+          <div class="col-4 text-center">
+            <div class="display-5 fw-bold">4.6</div>
+            <span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+            <div><small class="text-muted">18 opiniones</small></div>
+          </div>
+          <div class="col-8">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">5 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:70%"></div></div>
+            <small class="text-muted" style="width:2.5rem">70%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">4 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:20%"></div></div>
+            <small class="text-muted" style="width:2.5rem">20%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">3 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:6%"></div></div>
+            <small class="text-muted" style="width:2.5rem">6%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">2 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:3%"></div></div>
+            <small class="text-muted" style="width:2.5rem">3%</small>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <small style="width:2rem">1 <i class="bi bi-star-fill text-warning"></i></small>
+            <div class="progress flex-grow-1" style="height:10px"><div class="progress-bar bg-warning" style="width:1%"></div></div>
+            <small class="text-muted" style="width:2.5rem">1%</small>
+          </div>
+          </div>
+        </div>
+        <div class="border-top pt-2 mt-2">
+          <div class="d-flex justify-content-between"><strong>Laura M.</strong><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span></div>
+          <p class="mb-0 text-muted">Excelente producto, mi perro lo ama.</p>
+        </div>
+        <div class="border-top pt-2 mt-2">
+          <div class="d-flex justify-content-between"><strong>Carlos R.</strong><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span></div>
+          <p class="mb-0 text-muted">Buena calidad, llegó rápido.</p>
+        </div>
+        <div class="border-top pt-2 mt-2">
+          <div class="d-flex justify-content-between"><strong>Ana P.</strong><span class="text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span></div>
+          <p class="mb-0 text-muted">Está bien, aunque esperaba más cantidad.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALIFICAR -->
+<div class="modal fade" id="calificar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Calificar producto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label" for="calNombre">Tu nombre</label>
+            <input type="text" class="form-control" id="calNombre">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="calPuntaje">Calificación</label>
+            <select class="form-select" id="calPuntaje" required>
+              <option value="" selected disabled>Seleccione...</option>
+              <option value="5">5 - Excelente</option>
+              <option value="4">4 - Muy bueno</option>
+              <option value="3">3 - Bueno</option>
+              <option value="2">2 - Regular</option>
+              <option value="1">1 - Malo</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="calComentario">Comentario</label>
+            <textarea class="form-control" id="calComentario" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning">Enviar calificación</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDITAR -->
+<div class="modal fade" id="editar" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Editar producto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+      <div class="col-md-4">
+        <label class="form-label" for="ecodigo">Código</label>
+        <input type="text" class="form-control" id="ecodigo" value="PRD-001" required>
+      </div>
+      <div class="col-md-8">
+        <label class="form-label" for="enombre">Nombre del producto</label>
+        <input type="text" class="form-control" id="enombre" value="Alimento perro adulto 5 kg" required>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="ecategoria">Categoría</label>
+        <select class="form-select" id="ecategoria" required>
+          
+          <option selected>Alimentos</option><option>Accesorios</option><option>Juguetes</option><option>Higiene</option><option>Salud</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="eprecio">Precio</label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input type="number" min="0" class="form-control" id="eprecio" value="65000" required>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label" for="estock">Stock (unidades)</label>
+        <input type="number" min="0" class="form-control" id="estock" value="24" required>
+      </div>
+      <div class="col-12">
+        <label class="form-label" for="edescripcion">Descripción</label>
+        <textarea class="form-control" id="edescripcion" rows="3">Concentrado balanceado para perros adultos de todas las razas.</textarea>
+      </div>
+      <div class="col-12">
+        <label class="form-label" for="eimagen">Imagen del producto</label>
+        <input type="file" class="form-control" id="eimagen" accept="image/*">
+      </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AGREGAR AL CATÁLOGO -->
+<div class="modal fade" id="catalogo" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Agregar al catálogo</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea agregar este producto al catálogo para que los clientes lo vean?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Agregar al catálogo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ELIMINAR -->
+<div class="modal fade" id="eliminar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar producto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de que desea eliminar este producto?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/3.1.2/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/3.1.2/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  // DataTables trae la búsqueda y la paginación. Aquí solo se traducen los textos.
+  new DataTable("#Productos", {
+    language: {
+      search: "Buscar:",
+      lengthMenu: "Mostrar _MENU_ registros",
+      info: "Mostrando _START_ a _END_ de _TOTAL_",
+      zeroRecords: "No se encontraron productos",
+      paginate: { previous: "Anterior", next: "Siguiente" }
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listar Citas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/3.1.2/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="Pagina.css">
+</head>
+<body>
+
+<!-- Barra de navegación -->
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Index.html">
+        <img src="logo.png" alt="Logo" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clientes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCliente.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasClientes.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pedidos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarPedido.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasPedido.html">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Mascotas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Registrar</a></li>
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarProducto.html">Registrar</a></li>
+              <li><a class="dropdown-item" href="ListasProductos.html">Listar / Buscar</a></li>
+              <li><a class="dropdown-item" href="CatalogoProductos.html">Catálogo</a></li>
+              <li><a class="dropdown-item" href="ProductosMasVendidos.html">Más vendidos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Seguridad</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">R</a></li>
+              <li><a class="dropdown-item" href="#">L</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Citas</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="RegistrarCita.html">Agendar</a></li>
+              <li><a class="dropdown-item" href="ListasCitas.html">Listar</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="d-flex me-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+
+        <!-- Botón del carrito (lleva a la página de pedidos) -->
+        <a class="btn btn-outline-light" href="RegistrarPedido.html" aria-label="Ir al carrito">
+          <i class="bi bi-cart3"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container mt-3">
+    <h1>Citas al refugio</h1>
+    <table id="Citas" class="table table-striped">
+      <thead>
+        <tr><th>Visitante</th><th>Mascota</th><th>Refugio</th><th>Fecha</th><th>Hora</th><th>Estado</th><th>Acciones</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td><td>Firulais</td><td>Refugio Patitas Felices</td><td>2026-10-20</td><td>10:00</td><td><span class="badge bg-warning text-dark">Pendiente</span></td>
+          <td>
+          <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+          <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ubicacion">Ubicación</button>
+          <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+          <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Mary</td><td>Michi</td><td>Refugio Huellitas</td><td>2026-10-22</td><td>15:30</td><td><span class="badge bg-info text-dark">Confirmada</span></td>
+          <td>
+          <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+          <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ubicacion">Ubicación</button>
+          <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+          <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>July</td><td>Rocky</td><td>Refugio Patitas Felices</td><td>2026-10-10</td><td>09:00</td><td><span class="badge bg-success">Realizada</span></td>
+          <td>
+          <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#verDetalle">Ver detalle</button>
+          <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ubicacion">Ubicación</button>
+          <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#editar">Editar</button>
+          <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- VER DETALLE -->
+<div class="modal fade" id="verDetalle" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Información del cita</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="mb-3">
+              <label for="ver_visitante" class="form-label">Visitante</label>
+              <input type="text" class="form-control" id="ver_visitante" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_mascota" class="form-label">Mascota</label>
+              <input type="text" class="form-control" id="ver_mascota" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_refugio" class="form-label">Refugio</label>
+              <input type="text" class="form-control" id="ver_refugio" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_fecha" class="form-label">Fecha</label>
+              <input type="date" class="form-control" id="ver_fecha" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_hora" class="form-label">Hora</label>
+              <input type="time" class="form-control" id="ver_hora" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="ver_estado" class="form-label">Estado</label>
+              <input type="text" class="form-control" id="ver_estado" readonly>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDITAR -->
+<div class="modal fade" id="editar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Editar cita</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="mb-3">
+              <label for="edit_visitante" class="form-label">Visitante</label>
+              <input type="text" class="form-control" id="edit_visitante">
+            </div>
+            <div class="mb-3">
+              <label for="edit_mascota" class="form-label">Mascota</label>
+              <input type="text" class="form-control" id="edit_mascota">
+            </div>
+            <div class="mb-3">
+              <label for="edit_refugio" class="form-label">Refugio</label>
+              <input type="text" class="form-control" id="edit_refugio">
+            </div>
+            <div class="mb-3">
+              <label for="edit_fecha" class="form-label">Fecha</label>
+              <input type="date" class="form-control" id="edit_fecha">
+            </div>
+            <div class="mb-3">
+              <label for="edit_hora" class="form-label">Hora</label>
+              <input type="time" class="form-control" id="edit_hora">
+            </div>
+            <div class="mb-3">
+              <label for="edit_estado" class="form-label">Estado</label>
+              <input type="text" class="form-control" id="edit_estado">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ELIMINAR -->
+<div class="modal fade" id="eliminar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar cita</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de que desea eliminar este cita?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RF-CIT-05: UBICACIÓN DEL REFUGIO -->
+<div class="modal fade" id="ubicacion" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ubicación del refugio</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted">Dirección: (escribe aquí la dirección del refugio)</p>
+        <iframe src="https://www.google.com/maps?q=Medell%C3%ADn%2C+Antioquia%2C+Colombia&output=embed" width="100%" height="320" style="border:0" loading="lazy" title="Ubicación del refugio"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/3.1.2/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/3.1.2/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  new DataTable('#Citas');
+</script>
+
+</body>
+</html>
