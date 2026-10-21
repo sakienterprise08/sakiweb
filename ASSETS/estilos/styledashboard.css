@@ -146,32 +146,36 @@ button {
   margin: 0 11px 10px; 
 }
 
-.enlace-menu { 
-  width: 100%; 
-  display: flex; 
-  align-items: center; 
-  gap: 13px; 
-  padding: 11px 13px; 
-  border: 0; 
-  border-radius: 9px; 
-  color: #fafafa !important; 
-  background: transparent; 
-  text-decoration: none; 
-  text-align: left; 
-  font-size: 13px; 
-  transition: .2s ease; 
+.enlace-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 13px;
+  border: 0;
+  border-radius: 9px;
+  color: #fafafa !important;
+  background: transparent;
+  text-decoration: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
-.enlace-menu i:first-child { 
-  width: 17px; 
-  font-size: 16px; 
+.enlace-menu i:first-child {
+  width: 17px;
+  font-size: 16px;
+  flex-shrink: 0;
 }
 
-.enlace-menu:hover, 
-.enlace-menu.activo { 
-  color: #fff; 
-  background: #346463; 
-  box-shadow: 0 7px 16px rgba(45,140,255,.2); 
+.enlace-menu:hover,
+.enlace-menu.activo {
+  color: #fff !important;
+  background: #346463;
+  box-shadow: 0 7px 16px rgba(45, 140, 255, 0.2);
 }
 
 .flecha-enlace { 

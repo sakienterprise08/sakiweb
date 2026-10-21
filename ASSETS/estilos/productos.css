@@ -1,0 +1,700 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ================================================================          */
+:root {
+  --teal: #60a9a6;
+  --blue: #bad4f9;
+  --pink: #f2e9e9;
+  --cream: #feffd0;
+  --peach: #ffda95;
+  --ink: #263b3b;
+  --muted: #718181;
+  --white: #fff;
+  --shadow: 0 12px 34px rgba(45, 79, 78, .09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f8fbfa;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5,
+.display-font {
+  font-family: "Fredoka", sans-serif;
+}
+
+
+/* ==========================================================================
+   2. ESTRUCTURA Y LAYOUT PRINCIPAL (DASHBOARD)
+   ================================================================          */
+.soft-bg {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 95% 0%, rgba(186, 212, 249, .42), transparent 25rem),
+              radial-gradient(circle at 0% 20%, rgba(254, 255, 208, .5), transparent 24rem),
+              #f8fbfa;
+}
+
+.soft-bg > .barra-lateral {
+  flex: 0 0 260px;
+  width: 260px;
+  min-width: 260px;
+  height: auto;
+  max-height: none;
+  position: static;
+  top: auto;
+  overflow: visible;
+  overflow-y: visible;
+  align-self: stretch;
+}
+
+.soft-bg > main.page-wrap {
+  flex: 1 1 auto;
+  width: calc(100% - 260px);
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.page-wrap {
+  max-width: 1440px;
+  margin: auto;
+  padding: 28px clamp(16px, 3vw, 42px) 48px;
+}
+
+
+/* ==========================================================================
+   3. CABECERA, NAVEGACIÓN Y BOTONES
+   ================================================================          */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  background: white;
+  border: 1px solid #e6eeee;
+  box-shadow: 0 4px 14px rgba(45, 79, 78, .04);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+
+.eyebrow {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: #596044;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.page-title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -.8px;
+  margin: 12px 0 7px;
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 660px;
+  line-height: 1.65;
+}
+
+.section-title {
+  font-size: 1.55rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.primary-btn {
+  border: 0;
+  background: var(--teal);
+  color: white;
+  font-weight: 700;
+  border-radius: 15px;
+  padding: 13px 18px;
+  box-shadow: 0 8px 18px rgba(96, 169, 166, .25);
+  transition: transform .2s, background .2s;
+}
+
+.primary-btn:hover {
+  background: #4d9794;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  border: 1px solid #dce8e7;
+  background: white;
+  color: var(--ink);
+  border-radius: 13px;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.secondary-btn:hover {
+  background: #f0f8f7;
+}
+
+
+/* ==========================================================================
+   4. TARJETAS DE ESTADÍSTICAS (STATS)
+   ================================================================          */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(216, 231, 229, .85);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .92);
+  padding: 20px;
+  box-shadow: 0 7px 24px rgba(45, 79, 78, .04);
+}
+
+.stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-icon {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  font-size: 1.25rem;
+}
+
+.stat-number {
+  font: 600 2rem "Fredoka", sans-serif;
+  margin-top: 14px;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.stat-note {
+  font-size: .78rem;
+  color: #648c89;
+  margin-top: 4px;
+}
+
+
+/* ==========================================================================
+   5. BÚSQUEDA Y FORMULARIOS
+   ================================================================          */
+.search-wrap {
+  position: relative;
+  min-width: 220px;
+}
+
+.search-wrap i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7b9290;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid #e0eae9;
+  border-radius: 13px;
+  outline: none;
+  background: #fbfdfd;
+}
+
+.search-input:focus,
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 .2rem rgba(96, 169, 166, .16);
+}
+
+.filter-select {
+  padding: 12px 36px 12px 13px;
+  border-radius: 13px;
+  border-color: #e0eae9;
+}
+
+.form-label {
+  font-size: .87rem;
+  font-weight: 700;
+  color: #425b5a;
+  margin-bottom: 7px;
+}
+
+.form-control,
+.form-select {
+  border-radius: 12px;
+  padding: 11px 12px;
+  border-color: #dfe9e8;
+}
+
+textarea.form-control {
+  min-height: 95px;
+}
+
+.field-help {
+  color: #81918f;
+  font-size: .78rem;
+  margin-top: 5px;
+}
+
+
+/* ==========================================================================
+   6. CATÁLOGO Y TARJETAS DE PRODUCTOS
+   ================================================================          */
+.catalog-panel {
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid #e5eeed;
+  border-radius: 24px;
+  padding: clamp(16px, 2vw, 26px);
+  box-shadow: var(--shadow);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 19px;
+  margin-top: 24px;
+}
+
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e7eeee;
+  border-radius: 20px;
+  background: white;
+  transition: transform .22s, box-shadow .22s, border-color .22s;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(45, 79, 78, .12);
+  border-color: #c9e0de;
+}
+
+.product-image-wrap {
+  position: relative;
+  height: 150px;
+  background: var(--pink);
+  overflow: hidden;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0;
+  transition: transform .35s;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.045);
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .94);
+  font-size: .72rem;
+  font-weight: 700;
+  color: #405756;
+}
+
+.product-badge.best {
+  background: var(--peach);
+}
+
+.product-body {
+  padding: 16px;
+}
+
+.product-category {
+  color: #648b89;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-size: .69rem;
+  font-weight: 700;
+}
+
+.product-name {
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin: 5px 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.product-desc {
+  font-size: .83rem;
+  color: var(--muted);
+  min-height: 38px;
+  line-height: 1.45;
+}
+
+.product-price {
+  font: 600 1.35rem "Fredoka", sans-serif;
+  color: #2e6967;
+}
+
+.stock-text {
+  font-size: .77rem;
+  color: var(--muted);
+}
+
+.rating {
+  color: #e6a632;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.rating-count {
+  color: #83908f;
+  font-size: .76rem;
+  letter-spacing: 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.icon-btn {
+  border: 1px solid #e2eceb;
+  background: #fbfdfd;
+  color: #456563;
+  border-radius: 11px;
+  width: 38px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  transition: background .2s;
+}
+
+.icon-btn:hover {
+  background: var(--blue);
+  color: #274b4a;
+}
+
+.details-btn {
+  flex: 1;
+  border: 0;
+  border-radius: 11px;
+  background: #e7f3f2;
+  color: #386f6d;
+  font-weight: 700;
+  font-size: .82rem;
+}
+
+.details-btn:hover {
+  background: var(--teal);
+  color: white;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--muted);
+}
+
+.empty-state i {
+  font-size: 2.7rem;
+  color: var(--teal);
+}
+
+.best-seller-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid #edf2f1;
+}
+
+.best-seller-row:last-child {
+  border-bottom: 0;
+}
+
+.best-seller-row img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+/* ==========================================================================
+   7. MODALES Y COMPONENTES AUXILIARES
+   ================================================================          */
+.modal-content {
+  border: 0;
+  border-radius: 23px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(27, 59, 58, .2);
+}
+
+.modal-header {
+  padding: 22px 24px;
+  border-bottom: 1px solid #edf2f1;
+  background: #fbfdfd;
+  flex: 0 0 auto;
+}
+
+.modal-title {
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.details-image {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 17px;
+  background: var(--pink);
+}
+
+.details-price {
+  font: 600 2rem "Fredoka", sans-serif;
+  color: #2e6967;
+}
+
+/* Modal personalizado de formulario de producto */
+#productFormModal .modal-dialog {
+  width: min(800px, calc(100% - 1rem));
+  max-width: 800px;
+}
+
+#productFormModal .modal-content {
+  max-height: calc(100dvh - 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+#productFormModal #productForm {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+#productFormModal #productForm .modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  flex: 1 1 auto;
+}
+
+#productFormModal #productForm .modal-footer {
+  flex: 0 0 auto;
+  background: #fff;
+  border-top: 1px solid #edf2f1 !important;
+  box-shadow: 0 -5px 16px rgba(45, 79, 78, .04);
+}
+
+#productFormModal #productForm .modal-footer .primary-btn {
+  white-space: nowrap;
+}
+
+.toast-container {
+  z-index: 1090;
+}
+
+footer {
+  text-align: center;
+  padding: 26px 0 0;
+  color: #8a9b99;
+  font-size: .8rem;
+}
+
+
+/* ==========================================================================
+   8. MEDIA QUERIES (ADAPTABILIDAD RESPONSIVA)
+   ================================================================          */
+/* Pantallas grandes y escritorios */
+@media (min-width: 992px) {
+  .soft-bg > aside.barra-lateral {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100%;
+    position: static !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
+    align-self: stretch !important;
+  }
+}
+
+/* Pantallas medianas (Laptops pequeñas / Tablets grandes) */
+@media (max-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Tablets y móviles en orientación horizontal */
+@media (max-width: 991.98px) {
+  .soft-bg {
+    display: block;
+  }
+
+  .soft-bg > .barra-lateral {
+    width: 280px;
+    min-width: 0;
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+  }
+
+  .soft-bg > main.page-wrap {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* Pantallas pequeñas (Móviles grandes) */
+@media (max-width: 760px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-image-wrap {
+    height: 125px;
+  }
+
+  .product-body {
+    padding: 12px;
+  }
+
+  .product-desc {
+    min-height: 0;
+    margin-bottom: 12px;
+  }
+
+  .catalog-toolbar {
+    align-items: stretch !important;
+  }
+
+  .catalog-toolbar > * {
+    width: 100%;
+  }
+
+  .search-wrap {
+    min-width: 0;
+  }
+}
+
+/* Móviles ajustados y el modal de formulario */
+@media (max-width: 575.98px) {
+  #productFormModal .modal-dialog {
+    width: calc(100% - 1rem);
+    margin: .5rem auto;
+  }
+
+  #productFormModal .modal-header {
+    padding: 16px;
+  }
+
+  #productFormModal #productForm .modal-body {
+    padding: 16px;
+  }
+
+  #productFormModal #productForm .modal-footer {
+    padding: 12px 16px 16px !important;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  #productFormModal #productForm .modal-footer button {
+    padding: 10px 12px;
+    font-size: .88rem;
+  }
+}
+
+/* Pantallas extra pequeñas */
+@media (max-width: 480px) {
+  .stats-grid {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    border-radius: 17px;
+  }
+
+  .stat-number {
+    font-size: 1.65rem;
+  }
+
+  .stat-label {
+    font-size: .78rem;
+  }
+
+  .stat-icon {
+    width: 37px;
+    height: 37px;
+    border-radius: 12px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image-wrap {
+    height: 170px;
+  }
+
+  .page-wrap {
+    padding-top: 18px;
+  }
+}
