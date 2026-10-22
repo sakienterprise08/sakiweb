@@ -1,0 +1,451 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL
+   ================================================================          */
+:root {
+  --teal: #60a9a6;
+  --blue: #bad4f9;
+  --pink: #f2e9e9;
+  --cream: #feffd0;
+  --peach: #ffda95;
+  --ink: #263b3b;
+  --muted: #718181;
+  --shadow: 0 12px 34px rgba(45, 79, 78, .09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f8fbfa;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5,
+.display-font {
+  font-family: "Fredoka", sans-serif;
+}
+
+
+/* ==========================================================================
+   2. LAYOUT Y DISTRIBUCIÓN (DASHBOARD)
+   ================================================================          */
+.soft-bg {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 95% 0%, rgba(186, 212, 249, .42), transparent 25rem),
+              radial-gradient(circle at 0% 20%, rgba(254, 255, 208, .5), transparent 24rem),
+              #f8fbfa;
+}
+
+.soft-bg > .barra-lateral {
+  flex: 0 0 260px;
+  width: 260px;
+  min-width: 260px;
+  height: auto;
+  max-height: none;
+  position: static;
+  overflow: visible;
+  align-self: stretch;
+}
+
+.soft-bg > main.page-wrap {
+  flex: 1 1 auto;
+  width: calc(100% - 260px);
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.page-wrap {
+  padding: 28px clamp(16px, 3vw, 42px) 48px;
+}
+
+
+/* ==========================================================================
+   3. CABECERA, TÍTULOS Y BOTONES
+   ================================================================          */
+.eyebrow {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: #596044;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.page-title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -.8px;
+  margin: 12px 0 7px;
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 720px;
+  line-height: 1.65;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.primary-btn {
+  border: 0;
+  background: var(--teal);
+  color: white;
+  font-weight: 700;
+  border-radius: 15px;
+  padding: 12px 17px;
+  box-shadow: 0 8px 18px rgba(96, 169, 166, .25);
+  transition: .2s;
+}
+
+.primary-btn:hover {
+  background: #4d9794;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  border: 1px solid #dce8e7;
+  background: white;
+  color: var(--ink);
+  border-radius: 13px;
+  padding: 9px 13px;
+  font-weight: 700;
+}
+
+.secondary-btn:hover {
+  background: #f0f8f7;
+}
+
+
+/* ==========================================================================
+   4. PERFIL Y ESTADÍSTICAS (STATS)
+   ================================================================          */
+.panel {
+  background: rgba(255, 255, 255, .93);
+  border: 1px solid #e5eeed;
+  border-radius: 23px;
+  padding: clamp(16px, 2vw, 26px);
+  box-shadow: var(--shadow);
+}
+
+.profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 23px;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #e5f3f1, #f5f8ff);
+  border: 1px solid #deecea;
+}
+
+.avatar-large {
+  width: 82px;
+  height: 82px;
+  flex: 0 0 82px;
+  display: grid;
+  place-items: center;
+  border-radius: 26px;
+  background: var(--teal);
+  color: white;
+  font: 600 1.8rem "Fredoka", sans-serif;
+  box-shadow: 0 8px 20px #60a9a644;
+}
+
+.profile-meta {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e3f2f0;
+  color: #438b87;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin: 22px 0;
+}
+
+.stat-card {
+  border: 1px solid #e5eeed;
+  border-radius: 18px;
+  background: #fff;
+  padding: 18px;
+  box-shadow: 0 7px 24px rgba(45, 79, 78, .04);
+}
+
+.stat-number {
+  font: 600 1.8rem "Fredoka", sans-serif;
+  margin-top: 8px;
+}
+
+.stat-label {
+  font-size: .86rem;
+  color: var(--muted);
+}
+
+
+/* ==========================================================================
+   5. BÚSQUEDA Y TABLAS
+   ================================================================          */
+.search-wrap {
+  position: relative;
+  min-width: 220px;
+}
+
+.search-wrap i {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7b9290;
+}
+
+.search-input {
+  width: 100%;
+  padding: 11px 13px 11px 39px;
+  border: 1px solid #e0eae9;
+  border-radius: 13px;
+  outline: none;
+  background: #fbfdfd;
+}
+
+.search-input:focus,
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 .2rem rgba(96, 169, 166, .16);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table {
+  vertical-align: middle;
+  margin: 0;
+  min-width: 690px;
+}
+
+.table thead th {
+  background: #f3f8f7;
+  color: #647775;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  border-bottom: 1px solid #e2ecea;
+  padding: 14px;
+}
+
+.table tbody td {
+  padding: 14px;
+  border-color: #edf2f1;
+}
+
+.user-avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 14px;
+  background: var(--pink);
+  color: #775e61;
+  font: 600 1rem "Fredoka", sans-serif;
+}
+
+.user-name {
+  font-weight: 700;
+}
+
+.user-email {
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+/* Insignias de Roles */
+.role-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.role-general {
+  background: #e8efff;
+  color: #5875a7;
+}
+
+.role-tienda {
+  background: #ffedce;
+  color: #965f12;
+}
+
+.role-refugio {
+  background: #f5e4f7;
+  color: #914c9a;
+}
+
+.role-veterinaria {
+  background: #dff4e8;
+  color: #26764d;
+}
+
+.role-spa {
+  background: #ffe4e9;
+  color: #a94460;
+}
+
+.action-btn {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #e3eceb;
+  background: white;
+  color: #54706e;
+  border-radius: 11px;
+}
+
+.action-btn:hover {
+  background: #f1f8f7;
+}
+
+.action-btn.delete:hover {
+  background: #fff0ef;
+  color: #b94a48;
+  border-color: #f2d4d2;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 38px 12px;
+  color: var(--muted);
+}
+
+.empty-state i {
+  font-size: 2rem;
+  color: var(--teal);
+}
+
+
+/* ==========================================================================
+   6. FORMULARIOS Y MODALES
+   ================================================================          */
+.form-label {
+  font-weight: 700;
+  font-size: .9rem;
+  color: #425958;
+}
+
+.form-control,
+.form-select {
+  border-radius: 12px;
+  padding: 11px 12px;
+  border-color: #dfe9e8;
+}
+
+.modal-content {
+  border: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 70px #203b3b2b;
+}
+
+.modal-header {
+  padding: 22px 24px;
+  background: #f6faf9;
+  border-bottom: 1px solid #e8f0ef;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+footer {
+  padding: 25px 0 0;
+  color: #8b9a99;
+  font-size: .82rem;
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   7. MEDIA QUERIES (ADAPTABILIDAD RESPONSIVA)
+   ================================================================          */
+@media (min-width: 992px) {
+  .soft-bg > aside.barra-lateral {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100%;
+    position: static !important;
+    overflow: visible !important;
+    align-self: stretch !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .soft-bg {
+    display: block;
+  }
+
+  .soft-bg > .barra-lateral {
+    width: 280px;
+    min-width: 0;
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+  }
+
+  .soft-bg > main.page-wrap {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-hero {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .page-wrap {
+    padding-top: 18px;
+  }
+
+  .search-wrap {
+    min-width: 0;
+    width: 100%;
+  }
+} 
